@@ -11,7 +11,11 @@ const Logo = styled.img.attrs({
 })`
   background-color: #1F1F1F;
   border-radius: 150px;
-  margin: 0 10px 0 10px;
+  margin: 0 0.5rem 0 0.5rem;
+  @media (max-width: 1200px) {
+    width: 200px;
+    height: auto;
+  }
 `
 
 const Nav = styled.nav`
@@ -21,13 +25,13 @@ const Nav = styled.nav`
   display: flex;
   justify-content: center;
   color: ${colors.red};
-  font-size: 14px;
+  font-size: 1rem;
   margin-bottom: 10rem;
   background-image: url(${backgroundStress});
 
   span {
     color: ${colors.yellow};
-    padding: 5px;
+    padding: 0.3rem;
   }
 `
 

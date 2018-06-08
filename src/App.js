@@ -19,15 +19,22 @@ injectGlobal`
   html {
     background: url(${background}) no-repeat center fixed; ;
     background-size: cover;
+    font-size: 16px;
   }
 
   body {
     font-family: 'Source Sans Pro', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
       'Lucida Grande', sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    color: white;
     margin: 0;
     padding: 0;
+  }
+
+  @media (max-width: 1200px) {
+    html {
+      font-size:14px;
+    }
   }
 `
 
@@ -52,7 +59,7 @@ const AppStyles = styled.div`
 const App = () => (
   <Router>
     <AppStyles>
-      <Media query="(min-width: 1100px)">
+      <Media query="(min-width: 900px)">
         {matches => matches ? <Nav/> : <NavMobile />}
       </Media>
       <div className="content">
