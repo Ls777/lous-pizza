@@ -11,7 +11,7 @@ const Logo = styled.img.attrs({
 })`
   background-color: #1F1F1F;
   border-radius: 150px;
-  margin: 0 10px 0 10px
+  margin: 0 10px 0 10px;
 `
 
 const Nav = styled.nav`

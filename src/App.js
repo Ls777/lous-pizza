@@ -1,18 +1,25 @@
 import React from 'react'
 import { Router, Link } from 'react-static'
 import styled, { injectGlobal } from 'styled-components'
+import Media from 'react-media'
 import { hot } from 'react-hot-loader'
 //
 
 import Routes from 'react-static-routes'
 
 import Nav from './components/Nav'
+import NavMobile from './components/NavMobile'
 
 import background from './img/background.jpg'
 import * as colors from './colors.js'
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Lora:700|Source+Sans+Pro:600i,700');
+
+  html {
+    background: url(${background}) no-repeat center fixed; ;
+    background-size: cover;
+  }
 
   body {
     font-family: 'Source Sans Pro', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
@@ -21,8 +28,6 @@ injectGlobal`
     font-size: 16px;
     margin: 0;
     padding: 0;
-    background: $(colors.black);
-    background-image: url(${background});
   }
 `
 
@@ -47,7 +52,9 @@ const AppStyles = styled.div`
 const App = () => (
   <Router>
     <AppStyles>
-      <Nav />
+      <Media query="(min-width: 1100px)">
+        {matches => matches ? <Nav/> : <NavMobile />}
+      </Media>
       <div className="content">
         <Routes />
       </div>
