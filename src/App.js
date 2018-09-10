@@ -20,6 +20,7 @@ injectGlobal`
     background: url(${background}) no-repeat center fixed; ;
     background-size: cover;
     font-size: 16px;
+
   }
 
   body {
@@ -60,7 +61,7 @@ const App = () => (
   <Router>
     <AppStyles>
       <Media query="(min-width: 900px)">
-        {matches => matches ? <Nav/> : <NavMobile />}
+        {matches => matches ? <Nav /> : <NavMobile />}
       </Media>
       <div className="content">
         <Routes />

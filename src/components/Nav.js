@@ -4,7 +4,7 @@ import { Link } from 'react-static'
 import backgroundStress from '../img/backgroundstress.png'
 import logo from '../img/PizzaLogo.png'
 
-import * as colors from '../colors.js'
+import colors from '../colors.js'
 
 const Logo = styled.img.attrs({
   src: logo,
@@ -21,16 +21,16 @@ const Logo = styled.img.attrs({
 const Nav = styled.nav`
   width: 100%;
   height: 100px;
-  background: ${colors.black};
+  background: ${colors.BLACK};
   display: flex;
   justify-content: center;
-  color: ${colors.red};
+  color: ${colors.RED};
   font-size: 1rem;
   margin-bottom: 10rem;
   background-image: url(${backgroundStress});
 
   span {
-    color: ${colors.yellow};
+    color: ${colors.YELLOW};
     padding: 0.3rem;
   }
 `

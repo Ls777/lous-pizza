@@ -44,7 +44,7 @@ export default {
     return html
   },
   Document: class CustomHtml extends Component {
-    render () {
+    render() {
       const {
         Html, Head, Body, children, renderMeta,
       } = this.props

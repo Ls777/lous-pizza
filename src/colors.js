@@ -1,4 +1,8 @@
-export const black = '#1F1F1F'
-export const red = '#94291B'
-export const yellow = '#DF9513'
-export const bluegrey = '#435360'
+const colors = {}
+
+colors.BLACK = '#1F1F1F'
+colors.RED = '#94291B'
+colors.YELLOW = '#DF9513'
+colors.BLUEGREY = '#435360'
+
+export default colors

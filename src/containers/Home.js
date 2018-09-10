@@ -1,10 +1,11 @@
 import React from 'react'
 import { withSiteData } from 'react-static'
+import HomePageSpecial from '../components/HomePageSpecial'
 //
 
 
 export default withSiteData(() => (
   <div>
-    <h1 style={{ textAlign: 'center' }}>Welcome to</h1>
+    <HomePageSpecial pizza={"3-topping pizza"} price={"13.99"} />
   </div>
 ))

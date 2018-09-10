@@ -5,7 +5,7 @@ import backgroundStress from '../img/backgroundstress.png'
 import logo from '../img/PizzaLogo.png'
 import HamburgerMenu from 'react-hamburger-menu'
 
-import * as colors from '../colors.js'
+import colors from '../colors.js'
 
 const Logo = styled.img.attrs({
   src: logo,
@@ -21,7 +21,7 @@ const Logo = styled.img.attrs({
 const Nav = styled.nav`
   width: 100%;
   height: 100px;
-  background: ${colors.black};
+  background: ${colors.BLACK};
   display: flex;
   justify-content: center;
   
@@ -35,7 +35,7 @@ const LinkStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: ${colors.black};
+  background: ${colors.BLACK};
   padding: 12rem 0 1rem 0;
   width: 100%;
   
@@ -60,11 +60,11 @@ const MenuButton = styled.div`
 `
 
 export default class MobileNav extends Component {
-  state = {isOpen: false}
+  state = { isOpen: false }
 
-  handleClick = () => this.setState({isOpen: !this.state.isOpen})
+  handleClick = () => this.setState({ isOpen: !this.state.isOpen })
 
-  render () {
+  render() {
     const { isOpen } = this.state;
 
     return (
@@ -83,17 +83,17 @@ export default class MobileNav extends Component {
           <Logo />
         </Link>
         <MenuButton>
-        <HamburgerMenu 
-          isOpen={isOpen}
-          menuClicked={this.handleClick}
-          width={30}
-          height={20}
-          strokeWidth={3}
-          rotate={0}
-          color='white'
-          borderRadius={0}
-          animationDuration={0.1}
-        />
+          <HamburgerMenu
+            isOpen={isOpen}
+            menuClicked={this.handleClick}
+            width={30}
+            height={20}
+            strokeWidth={3}
+            rotate={0}
+            color='white'
+            borderRadius={0}
+            animationDuration={0.1}
+          />
         </MenuButton>
       </Nav>
     )
