@@ -9,15 +9,19 @@ const LeftOrCenter = styled.div`
   justify-content: flex-end;
   padding: 0px;
   margin-left: -1rem;
-  margin-top: 10rem;
+  margin-top: 7rem;
+  @media (max-width: 1200px) {
+    margin-top: 0rem;
+    font-size: 10px;
+  }
   @media (max-width: 900px) {
     width: 45em;
     margin-left: -1rem;
     margin-top: -5rem;
     font-size: 10px;
   }
-`
 
+`
 
 const Special = styled.div`
   background-color: ${colors.BLACK};
@@ -79,14 +83,14 @@ const HomePageSpecial = ({ pizza, price }) => (
   <LeftOrCenter>
     <Special>
       <div>
-        <Pizza >
-          <div className="line1">
+        <Pizza>
+          <div className='line1'>
             SPECIAL
-        </div>
-          <div className="line2">
+          </div>
+          <div className='line2'>
             Blazed
-        </div>
-          <div className="line3">
+          </div>
+          <div className='line3'>
             {pizza}
           </div>
         </Pizza>
@@ -96,7 +100,7 @@ const HomePageSpecial = ({ pizza, price }) => (
         <div>{price.slice(-2)}</div>
       </Price>
       <Triangle />
-    </Special >
+    </Special>
   </LeftOrCenter>
 )
 
