@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import colors from '../colors.js'
 import backgroundStress from '../img/backgroundstress.png'
+import Star from './Star'
+import Triangle from './Triangle'
 
 const LeftOrCenter = styled.div`
   width: 50%;
@@ -19,6 +21,11 @@ const LeftOrCenter = styled.div`
     margin-left: -1rem;
     margin-top: -5rem;
     font-size: 10px;
+  }
+
+  @media (max-width: 600px) {
+    margin-left: -4rem;
+    transform: scale(0.8);
   }
 
 `
@@ -69,14 +76,33 @@ const Price = styled.div`
   }
 `
 
-const Triangle = styled.div`
+const TriangleBar = styled.div`
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 12rem 0 0 6rem;
   border-color: transparent transparent transparent ${colors.BLACK};
   margin-right: -6rem;
-  
+`
+
+const StarLine = styled.div`
+  display: flex;
+  position: relative;
+  width: 120%;
+  justify-content: space-between;
+  top: -10px;
+`
+
+const TriangleLine = styled.div`
+  display: flex;
+  position: relative;
+  height: 0px;
+  top: -3.1rem;
+  left: 6.5rem;
+  flex-direction: column; 
+  div {
+    margin-bottom: 5px;
+  }
 `
 
 const HomePageSpecial = ({ pizza, price }) => (
@@ -95,11 +121,20 @@ const HomePageSpecial = ({ pizza, price }) => (
           </div>
         </Pizza>
       </div>
-      <Price>
-        {price.slice(0, -3)}
-        <div>{price.slice(-2)}</div>
-      </Price>
-      <Triangle />
+      <div>
+        <Price>
+          {price.slice(0, -3)}
+          <div>{price.slice(-2)}</div>
+        </Price>
+        <TriangleLine>
+          <Triangle width={60} />
+          <Triangle width={70} />
+        </TriangleLine>
+        <StarLine>
+          <Star repeat={5} />
+        </StarLine>
+      </div>
+      <TriangleBar />
     </Special>
   </LeftOrCenter>
 )

@@ -4,11 +4,13 @@ import { Link } from 'react-static'
 import backgroundStress from '../img/backgroundstress.png'
 import logo from '../img/PizzaLogo.png'
 import HamburgerMenu from 'react-hamburger-menu'
+import Triangle from './Triangle'
+import Star from './Star'
 
 import colors from '../colors.js'
 
 const Logo = styled.img.attrs({
-  src: logo,
+  src: logo
 })`
   position: relative;
   background-color: #1F1F1F;
@@ -16,6 +18,7 @@ const Logo = styled.img.attrs({
   margin: 0 10px 0 10px;
   width: 200px;
   height: auto;
+  z-index: 10;
 `
 
 const Nav = styled.nav`
@@ -38,48 +41,75 @@ const LinkStyles = styled.div`
   background: ${colors.BLACK};
   padding: 12rem 0 1rem 0;
   width: 100%;
+  margin-top: 2rem;
+  height: 100vh;
+  z-index: 5;
   
 
   a {
     color: white;
     padding: 1rem 0 1rem 0;
-    width: 10rem;
     text-align: center;
+    font-family: Lora;
+    font-size: 48px !important;
   }
 
-  a:not(:last-child) { 
-    border-bottom:solid 3px #557;/* This will not give border to last li element */
-  }
+  
 `
 
 const MenuButton = styled.div`
   position: absolute;
   right: 1.5rem;
   top: 1.5rem;
+  z-index: 10;
   cursor: pointer;
 `
+const DividerStyles = styled.div`
+display: flex;
+align-items: center;
+svg {
+  margin: 0px 5px;
+}
+div {
+  margin: 0px 10px;
+  width: 0 !important;
+}
+
+`
+
+const Divider = () => (
+  <DividerStyles>
+    <Triangle left />
+    <Star repeat={3} yellow size={1.2} />
+    <Triangle />
+  </DividerStyles>
+)
 
 export default class MobileNav extends Component {
   state = { isOpen: false }
 
   handleClick = () => this.setState({ isOpen: !this.state.isOpen })
 
-  render() {
-    const { isOpen } = this.state;
+  render () {
+    const { isOpen } = this.state
 
     return (
       <Nav>
         {isOpen &&
           <LinkStyles>
-            <Link to="/" onClick={this.handleClick}>HOME</Link>
-            <Link to="/menu" onClick={this.handleClick}>MENU</Link>
-            <Link to="/catering" onClick={this.handleClick}>CATERING</Link>
-            <Link to="/events" onClick={this.handleClick}>EVENTS</Link>
-            <Link to="/location" onClick={this.handleClick}>LOCATION</Link>
-            <Link to="/about" onClick={this.handleClick}>ABOUT</Link>
-          </LinkStyles>
-        }
-        <Link to="/">
+            <Link to='/' onClick={this.handleClick}>Home</Link>
+            <Divider />
+            <Link to='/menu' onClick={this.handleClick}>Menu</Link>
+            <Divider />
+            <Link to='/catering' onClick={this.handleClick}>Catering</Link>
+            <Divider />
+            <Link to='/events' onClick={this.handleClick}>Events</Link>
+            <Divider />
+            <Link to='/location' onClick={this.handleClick}>Location</Link>
+            <Divider />
+            <Link to='/about' onClick={this.handleClick}>About</Link>
+          </LinkStyles>}
+        <Link to='/'>
           <Logo />
         </Link>
         <MenuButton>
@@ -99,4 +129,3 @@ export default class MobileNav extends Component {
     )
   }
 }
-

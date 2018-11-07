@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
-import menu from './content/menu.json'
+import menuData from './content/menu.json'
 
 export default {
   getSiteData: () => ({
@@ -17,13 +17,25 @@ export default {
         component: 'src/containers/Home'
       },
       {
-        path: '/about',
-        component: 'src/containers/About'
-      },
-      {
         path: '/menu',
         component: 'src/containers/Menu',
-        getData: () => ({ menu })
+        getData: () => ({ menuData })
+      },
+      {
+        path: '/catering',
+        component: 'src/containers/Catering'
+      },
+      {
+        path: '/events',
+        component: 'src/containers/Events'
+      },
+      {
+        path: '/location',
+        component: 'src/containers/Location'
+      },
+      {
+        path: '/about',
+        component: 'src/containers/About'
       },
       {
         path: '/blog',

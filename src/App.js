@@ -37,6 +37,7 @@ injectGlobal`
       font-size:14px;
     }
   }
+
 `
 
 const AppStyles = styled.div`
@@ -55,15 +56,13 @@ const AppStyles = styled.div`
   }
 `
 
-
-
 const App = () => (
   <Router>
     <AppStyles>
-      <Media query="(min-width: 900px)">
-        {matches => matches ? <Nav /> : <NavMobile />}
+      <Media query='(min-width: 900px)'>
+        {matches => (matches ? <Nav /> : <NavMobile />)}
       </Media>
-      <div className="content">
+      <div className='content'>
         <Routes />
       </div>
     </AppStyles>
