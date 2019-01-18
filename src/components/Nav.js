@@ -9,7 +9,7 @@ import colors from '../colors.js'
 const Logo = styled.img.attrs({
   src: logo
 })`
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   border-radius: 150px;
   margin: 0 0.5rem 0 0.5rem;
   @media (max-width: 1200px) {
@@ -53,53 +53,44 @@ const LinkStyles = styled.div`
     position: relative;
   }
 
-  a:before{
-    content:' ';
+  a:before {
+    content: ' ';
     display: block;
     position: absolute;
     margin-left: -10%;
-    width: 100%;
+    width: 0;
     height: 20px;
-    background:${colors.RED};
-    top:47%;
-    animation:out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+    background: ${colors.RED};
+    top: 47%;
+    animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
     mix-blend-mode: lighten;
-    transform: rotate(3deg)
+    transform: rotate(3deg);
   }
-  a:hover:before{
-    animation:in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  .active:before {
+    left: 0;
+    right: auto;
+    width: 120%;
+  }
+  a:not(.active):hover:before {
+    animation: in 0.1s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
   }
 
-  @keyframes in{
-    0%{
+  @keyframes in {
+    0% {
       width: 0;
-      left:0;
-      right:auto;
+      left: 0;
+      right: auto;
     }
-    100%{
-      left:0;
-      right:auto;
+    100% {
+      left: 0;
+      right: auto;
       width: 120%;
     }
   }
-  @keyframes out{
-    0%{
-      width:100%;
-      left: auto;
-      right: 0;
-    }
-    100%{
-      width: 0;
-      left: auto;
-      right: 0;
-    }
+
+  a:not(:last-child) {
+    border-right: solid 0px #557;
   }
-
-
-  a:not(:last-child) { 
-    border-right:solid 0px #557;
-  }
-
 `
 
 const VerticalWrapper = styled.div`
@@ -116,9 +107,17 @@ export default () => (
   <Nav>
     <VerticalWrapper>
       <LinkStyles pos={'left'}>
-        <div><Link to='/'>HOME</Link></div>
-        <div><Link to='/menu'>MENU</Link></div>
-        <div><Link to='/catering'>CATERING</Link></div>
+        <div>
+          <Link to='/' activeClassName='home'>
+            HOME
+          </Link>
+        </div>
+        <div>
+          <Link to='/menu'>MENU</Link>
+        </div>
+        <div>
+          <Link to='/catering'>CATERING</Link>
+        </div>
       </LinkStyles>
       <div>
         OPEN
@@ -133,9 +132,15 @@ export default () => (
     </Link>
     <VerticalWrapper>
       <LinkStyles pos={'right'}>
-        <div><Link to='/events'>EVENTS</Link></div>
-        <div><Link to='/location'>LOCATION</Link></div>
-        <div><Link to='/about'>ABOUT</Link></div>
+        <div>
+          <Link to='/events'>EVENTS</Link>
+        </div>
+        <div>
+          <Link to='/location'>LOCATION</Link>
+        </div>
+        <div>
+          <Link to='/about'>ABOUT</Link>
+        </div>
       </LinkStyles>
       <div>
         CALL US at
