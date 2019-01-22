@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'react-static'
 import backgroundStress from '../img/backgroundstress.png'
 import logo from '../img/PizzaLogo.png'
@@ -9,11 +9,17 @@ import Star from './Star'
 
 import colors from '../colors.js'
 
+const GlobalStyle = createGlobalStyle`
+  html {
+    overflow-y: ${({ isOpen }) => (isOpen ? 'hidden' : 'scroll')} !important;
+  }
+`
+
 const Logo = styled.img.attrs({
   src: logo
 })`
   position: relative;
-  background-color: #1F1F1F;
+  background-color: #1f1f1f;
   border-radius: 150px;
   margin: 0 10px 0 10px;
   width: 200px;
@@ -27,10 +33,9 @@ const Nav = styled.nav`
   background: ${colors.BLACK};
   display: flex;
   justify-content: center;
-  
-  margin-bottom: 10rem;
+  position: absolute;
+  z-index: 10;
   background-image: url(${backgroundStress});
-
 `
 
 const LinkStyles = styled.div`
@@ -44,7 +49,6 @@ const LinkStyles = styled.div`
   margin-top: 2rem;
   height: 100vh;
   z-index: 5;
-  
 
   a {
     color: white;
@@ -53,8 +57,6 @@ const LinkStyles = styled.div`
     font-family: Lora;
     font-size: 48px !important;
   }
-
-  
 `
 
 const MenuButton = styled.div`
@@ -65,16 +67,15 @@ const MenuButton = styled.div`
   cursor: pointer;
 `
 const DividerStyles = styled.div`
-display: flex;
-align-items: center;
-svg {
-  margin: 0px 5px;
-}
-div {
-  margin: 0px 10px;
-  width: 0 !important;
-}
-
+  display: flex;
+  align-items: center;
+  svg {
+    margin: 0px 5px;
+  }
+  div {
+    margin: 0px 10px;
+    width: 0 !important;
+  }
 `
 
 const Divider = () => (
@@ -95,20 +96,34 @@ export default class MobileNav extends Component {
 
     return (
       <Nav>
-        {isOpen &&
+        <GlobalStyle isOpen={isOpen} />
+        {isOpen && (
           <LinkStyles>
-            <Link to='/' onClick={this.handleClick}>Home</Link>
+            <Link to='/' onClick={this.handleClick}>
+              Home
+            </Link>
             <Divider />
-            <Link to='/menu' onClick={this.handleClick}>Menu</Link>
+            <Link to='/menu' onClick={this.handleClick}>
+              Menu
+            </Link>
             <Divider />
-            <Link to='/catering' onClick={this.handleClick}>Catering</Link>
+            <Link to='/catering' onClick={this.handleClick}>
+              Catering
+            </Link>
             <Divider />
-            <Link to='/events' onClick={this.handleClick}>Events</Link>
+            <Link to='/events' onClick={this.handleClick}>
+              Events
+            </Link>
             <Divider />
-            <Link to='/location' onClick={this.handleClick}>Location</Link>
+            <Link to='/location' onClick={this.handleClick}>
+              Location
+            </Link>
             <Divider />
-            <Link to='/about' onClick={this.handleClick}>About</Link>
-          </LinkStyles>}
+            <Link to='/about' onClick={this.handleClick}>
+              About
+            </Link>
+          </LinkStyles>
+        )}
         <Link to='/'>
           <Logo />
         </Link>

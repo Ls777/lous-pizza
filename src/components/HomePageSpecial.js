@@ -11,23 +11,22 @@ const LeftOrCenter = styled.div`
   justify-content: flex-end;
   padding: 0px;
   margin-left: -1rem;
-  margin-top: 7rem;
+  margin-top: 10rem;
   @media (max-width: 1200px) {
-    margin-top: 0rem;
+    margin-top: 15rem;
     font-size: 10px;
   }
   @media (max-width: 900px) {
     width: 45em;
     margin-left: -1rem;
-    margin-top: -5rem;
+    margin-top: 10rem;
     font-size: 10px;
   }
 
   @media (max-width: 600px) {
-    margin-left: -4rem;
+    margin-left: -4.5rem;
     transform: scale(0.8);
   }
-
 `
 
 const Special = styled.div`
@@ -54,20 +53,20 @@ const Pizza = styled.h2`
 
   .line2 {
     color: white;
-    font-family: "Lora";
+    font-family: 'Lora';
     font-size: 6rem;
   }
 
   .line3 {
     margin-top: -1.5rem;
     color: ${colors.YELLOW};
-    font-size: 2.4rem
+    font-size: 2.4rem;
   }
 `
 
 const Price = styled.div`
   margin-top: 1rem;
-  display:flex;
+  display: flex;
   color: ${colors.RED};
   font-size: 6rem;
   > * {
@@ -99,7 +98,7 @@ const TriangleLine = styled.div`
   height: 0px;
   top: -3.1rem;
   left: 6.5rem;
-  flex-direction: column; 
+  flex-direction: column;
   div {
     margin-bottom: 5px;
   }
@@ -110,15 +109,9 @@ const HomePageSpecial = ({ pizza, price }) => (
     <Special>
       <div>
         <Pizza>
-          <div className='line1'>
-            SPECIAL
-          </div>
-          <div className='line2'>
-            Blazed
-          </div>
-          <div className='line3'>
-            {pizza}
-          </div>
+          <div className='line1'>SPECIAL</div>
+          <div className='line2'>Blazed</div>
+          <div className='line3'>{pizza}</div>
         </Pizza>
       </div>
       <div>

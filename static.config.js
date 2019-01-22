@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import menuData from './content/menu.json'
+import cateringData from './content/catering.json'
 
 export default {
   getSiteData: () => ({
@@ -23,7 +24,8 @@ export default {
       },
       {
         path: '/catering',
-        component: 'src/containers/Catering'
+        component: 'src/containers/Catering',
+        getData: () => ({ cateringData })
       },
       {
         path: '/events',

@@ -21,12 +21,12 @@ const Logo = styled.img.attrs({
 const Nav = styled.nav`
   width: 100%;
   height: 100px;
+  position: absolute;
   background: ${colors.BLACK};
   display: flex;
   justify-content: center;
   color: ${colors.RED};
   font-size: 0.9rem;
-  margin-bottom: 10rem;
   background-image: url(${backgroundStress});
 
   span {

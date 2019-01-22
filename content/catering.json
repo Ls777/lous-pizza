@@ -1,0 +1,33 @@
+{
+  "title": "Catering Combos",
+  "items": [
+    {
+      "name": "Regular",
+      "description": "sauce and mozarella",
+      "small": "$12.95",
+      "medium": "12.34",
+      "large": "$13.95"
+    },
+    {
+      "name": "Pepperoni",
+      "description": "sauce, mozarella, and pepperoni",
+      "small": "$12.95",
+      "medium": "12.34",
+      "large": "13.95"
+    },
+    {
+      "name": "Personal",
+      "description": "sauce, mozarella, and pepperoni",
+      "small": "$5.95",
+      "medium": "12.34",
+      "large": "$6.95"
+    },
+    {
+      "name": "Personal",
+      "description": "sauce, mozarella, and pepperoni",
+      "small": "$5.95",
+      "medium": "12.34",
+      "large": "$6.95"
+    }
+  ]
+}

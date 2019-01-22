@@ -1,6 +1,6 @@
 import React from 'react'
 import { Router, Link } from 'react-static'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Media from 'react-media'
 import { hot } from 'react-hot-loader'
 //
@@ -11,16 +11,20 @@ import Nav from './components/Nav'
 import NavMobile from './components/NavMobile'
 
 import background from './img/background.jpg'
-import * as colors from './colors.js'
+import colors from './colors.js'
 
-injectGlobal`
+const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Lora:700|Source+Sans+Pro:600i,700');
 
-  html {
-    background: url(${background}) no-repeat center fixed; ;
-    background-size: cover;
-    font-size: 16px;
+  * {
+    box-sizing: border-box;
+  }
 
+  html {
+    background-color: ${colors.BLACK};
+    font-size: 16px;
+    height: 100%;
+    overflow-y: scroll;
   }
 
   body {
@@ -30,6 +34,7 @@ injectGlobal`
     color: white;
     margin: 0;
     padding: 0;
+    height: 100%;
   }
 
   @media (max-width: 1200px) {
@@ -38,9 +43,15 @@ injectGlobal`
     }
   }
 
+  #root {
+    height: 100%
+  }
+
 `
 
 const AppStyles = styled.div`
+  height: 100%;
+
   a {
     text-decoration: none;
     font-weight: bold;
@@ -48,7 +59,7 @@ const AppStyles = styled.div`
   }
 
   .content {
-    padding: 1rem;
+    height: 100%;
   }
 
   img {
@@ -65,6 +76,7 @@ const App = () => (
       <div className='content'>
         <Routes />
       </div>
+      <GlobalStyles />
     </AppStyles>
   </Router>
 )
